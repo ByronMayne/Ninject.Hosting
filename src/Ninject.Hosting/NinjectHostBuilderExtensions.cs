@@ -1,8 +1,7 @@
-﻿using Microsoft.Extensions.Hosting;
-using Ninject;
+﻿using Ninject;
 using Ninject.Hosting.Internal;
 
-namespace Ninject.Hosting
+namespace Microsoft.Extensions.Hosting
 {
 
     /// <summary>

@@ -1,0 +1,24 @@
+name: Build
+
+on: [push]
+
+env:
+  solutionPath: ./src/Ninject.Hosting.sln
+  configuration: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: CheckOut
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }} 
+        fetch-depth: 0  
+    - name: Build 
+      uses: ByronMayne/Shared.Actions/build_csharp@1.0.3
+      with: 
+        publish: false 
+        configuration: ${{ env.configuration }}
+        solutionPath: ${{ env.solutionPath }}
+

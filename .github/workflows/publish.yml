@@ -7,6 +7,7 @@ on:
 
 env:
   solutionPath: ./src/Ninject.Hosting.sln
+  projectPath: ./src/Ninject.Hosting/Ninject.Hosting.csproj
   configuration: Release
 
 jobs:
@@ -19,15 +20,15 @@ jobs:
         ref: ${{ github.head_ref }} 
         fetch-depth: 0  
     - name: Build 
-      uses: ByronMayne/Shared.Actions/build_csharp@1.0.3
+      uses: ByronMayne/Shared.Actions/build_csharp@1.0.4
       with: 
         publish: false 
         configuration: ${{ env.configuration }}
-        solutionPath:  ${{ env.solutionPath }}
+        solutionOrProjectPath:  ${{ env.solutionPath }}
     - name: Publish 
-      uses: ByronMayne/Shared.Actions/publish_csharp_nuget@1.0.3
+      uses: ByronMayne/Shared.Actions/publish_csharp_nuget@1.0.4
       with: 
         publish: true 
         configuration: ${{ env.configuration }}
-        solutionPath: ${{ env.solutionPath }}
+        solutionOrProjectPath: ${{ env.projectPath }}
         nugetApiKey: ${{ secrets.NUGET_API_KEY }}

@@ -15,10 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: CheckOut
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ github.head_ref }} 
-        fetch-depth: 0  
+      uses: ByronMayne/Shared.Actions/gitversion_checkout@1.0.4
     - name: Build 
       uses: ByronMayne/Shared.Actions/build_csharp@1.0.4
       with: 
